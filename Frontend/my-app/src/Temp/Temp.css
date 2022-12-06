@@ -1,0 +1,290 @@
+.card {
+  margin-bottom: 1.875rem;
+  background-color: #ffffff;
+  position: relative;
+  border: 0px solid transparent;
+  letter-spacing: 0.5px;
+  height: calc(100% - 30px);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.card {
+  margin-bottom: 1.875rem;
+  background-color: #ffffff;
+  position: relative;
+  border: 0px solid transparent;
+  letter-spacing: 0.5px;
+  height: calc(100% - 30px);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.shadow,
+.main-scroll,
+.card {
+  -webkit-box-shadow: 0 0 40px rgb(8 21 66 / 5%) !important;
+  box-shadow: 0 0 40px rgb(8 21 66 / 5%) !important;
+}
+.transition-layouts,
+.sidebar-widgets,
+.header,
+.header .top-head,
+.widget-7 .account-control .account-dropdown-form .form-content a,
+.widget-7 .account-control .account-dropdown-form .form-content a:hover,
+.widget-7 .account-control .account-dropdown-form .form-content a:hover span,
+.widget-7
+  .account-control
+  .account-dropdown-form
+  .form-content
+  a:hover
+  i:before,
+.widget-7 .account-control .account-dropdown-form .form-content a i:before,
+.widget-7 .account-control .account-dropdown-form .form-content a span,
+.menu-toggle .header .top-head,
+.nav-header,
+.nav-header .brand-logo .logo-tabib,
+.nav-header .brand-logo .brand-title,
+.nav-header .brand-logo,
+.menu-toggle .nav-header .brand-logo,
+[data-sidebar-style="mini"] .nav-header .brand-logo,
+.navigation .main-menu .has-submenu,
+.navigation .main-menu .has-submenu a,
+.navigation .main-menu .has-submenu a i,
+.navigation .main-menu .has-submenu a .nav-label,
+.navigation .main-menu .has-submenu .has-arrow:after,
+.navigation .main-menu .has-submenu .mm-collapse,
+.navigation .main-menu .has-submenu:hover .nav-label,
+.navigation .main-menu .has-submenu:hover i,
+.navigation .main-menu .has-submenu.active,
+.navigation .main-menu .has-submenu.active a,
+.navigation .main-menu .has-submenu.active a .nav-label,
+td span,
+td span:hover,
+.card,
+.left-panel,
+[data-sidebar-style="close"] .left-panel,
+[data-sidebar-style="close"] .left-panel.collapsed,
+.content-body,
+.footer {
+  -webkit-transition: all 0.2s ease !important;
+  -o-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
+}
+.shadow,
+.main-scroll,
+.card {
+  -webkit-box-shadow: 0 0 40px rgb(8 21 66 / 5%) !important;
+  box-shadow: 0 0 40px rgb(8 21 66 / 5%) !important;
+}
+.transition-layouts,
+.sidebar-widgets,
+.header,
+.header .top-head,
+.widget-7 .account-control .account-dropdown-form .form-content a,
+.widget-7 .account-control .account-dropdown-form .form-content a:hover,
+.widget-7 .account-control .account-dropdown-form .form-content a:hover span,
+.widget-7
+  .account-control
+  .account-dropdown-form
+  .form-content
+  a:hover
+  i:before,
+.widget-7 .account-control .account-dropdown-form .form-content a i:before,
+.widget-7 .account-control .account-dropdown-form .form-content a span,
+.menu-toggle .header .top-head,
+.nav-header,
+.nav-header .brand-logo .logo-tabib,
+.nav-header .brand-logo .brand-title,
+.nav-header .brand-logo,
+.menu-toggle .nav-header .brand-logo,
+[data-sidebar-style="mini"] .nav-header .brand-logo,
+.navigation .main-menu .has-submenu,
+.navigation .main-menu .has-submenu a,
+.navigation .main-menu .has-submenu a i,
+.navigation .main-menu .has-submenu a .nav-label,
+.navigation .main-menu .has-submenu .has-arrow:after,
+.navigation .main-menu .has-submenu .mm-collapse,
+.navigation .main-menu .has-submenu:hover .nav-label,
+.navigation .main-menu .has-submenu:hover i,
+.navigation .main-menu .has-submenu.active,
+.navigation .main-menu .has-submenu.active a,
+.navigation .main-menu .has-submenu.active a .nav-label,
+td span,
+td span:hover,
+.card,
+.left-panel,
+[data-sidebar-style="close"] .left-panel,
+[data-sidebar-style="close"] .left-panel.collapsed,
+.content-body,
+.footer {
+  -webkit-transition: all 0.2s ease !important;
+  -o-transition: all 0.2s ease !important;
+  transition: all 0.2s ease !important;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-header:first-child {
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.card-header {
+  padding: 1rem;
+}
+.card-header {
+  border-color: #ecf3fa;
+  position: relative;
+  background: transparent;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+.card-header:first-child {
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.card-header {
+  padding: 1rem;
+}
+.card-header {
+  border-color: #ecf3fa;
+  position: relative;
+  background: transparent;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+* {
+  outline: none;
+  padding: 0;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+user agent stylesheet div {
+  display: block;
+}
+.card {
+  margin-bottom: 1.875rem;
+  background-color: #ffffff;
+  position: relative;
+  border: 0px solid transparent;
+  letter-spacing: 0.5px;
+  height: calc(100% - 30px);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+/* .row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+} */
+
+.form-input {
+  width: 100%;
+  height: 254px;
+}
+.widget-3 .form-input {
+  width: 270px;
+  padding: 20px;
+  height: 100%;
+  background-color: rgba(115, 102, 255, 0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("./Avatar-Profile-PNG-HD-Image.png");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.widget-3 {
+  height: 256px;
+}
+/* .row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+} */
+/* .row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+} */
+/* 
+.widget-3 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  color: #7e7e7e;
+  text-transform: capitalize;
+  margin-bottom: 0;
+} */
