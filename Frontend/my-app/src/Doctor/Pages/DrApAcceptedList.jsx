@@ -1,24 +1,24 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
-// import { textAlign } from '@mui/material';
 import { DataGrid } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import { useFetchDataPt } from "../Query";
+import { useFetchDataDr } from "../../Admin/Query";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import InfoIcon from "@mui/icons-material/Info";
 
-export const AdmPatientAllList = () => {
-  const { isLoading, isSuccess, isError, data } = useFetchDataPt();
-  // const [PtData,setPtData]=useState()
+export const DrApAcceptedList = () => {
   const [pageSize, setPageSize] = useState(5);
+  const { isError, isLoading, isSuccess, data } = useFetchDataDr();
 
   useEffect(() => {
+    console.log(isLoading);
     console.log(data);
-    console.log(isSuccess);
     console.log(isError);
+    console.log(isSuccess);
   }, [isLoading]);
 
-  const columnPt = [
+  //--- columns dr list
+  const columnDr = [
     { field: "Id", headerName: "ID", width: 150 },
     {
       field: "Name",
@@ -33,20 +33,15 @@ export const AdmPatientAllList = () => {
     {
       field: "action",
       Header: "Action",
-      width: 250,
+      width: 150,
       renderCell: (cellValues) => {
         return (
           <div>
             <Button variant="contained" color="primary">
-              <VisibilityIcon />
+              <InfoIcon />
             </Button>
-            &nbsp;&nbsp;
-            <Button variant="contained" color="warning">
-              <EditIcon />
-            </Button>
-            &nbsp;&nbsp;
-            <Button variant="contained" color="error">
-              <DeleteForeverIcon />
+            <Button color="success">
+              {/* <Link to={`/aboutus`}>Edit</Link> */}
             </Button>
           </div>
         );
@@ -56,7 +51,7 @@ export const AdmPatientAllList = () => {
 
   return (
     <div>
-      <Box sx={{ height: 300, width: "90%", margin: "Auto" }}>
+      <Box sx={{ height: 300, width: "90%", margin: "auto" }}>
         {data ? (
           <>
             <Typography
@@ -64,14 +59,14 @@ export const AdmPatientAllList = () => {
               component="h3"
               sx={{ textAlign: "center", mt: 3, mb: 3 }}
             >
-              Patient All List
+              Appoinment Shedual List
             </Typography>
             <DataGrid
-              columns={columnPt}
+              columns={columnDr}
               rows={data.data}
               getRowId={(row) => row.Id}
-              pageSize={pageSize}
               rowsPerPageOptions={[5, 10, 20]}
+              pageSize={pageSize}
               onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             />
           </>

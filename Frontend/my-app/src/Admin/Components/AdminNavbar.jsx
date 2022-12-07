@@ -39,7 +39,7 @@ export const AdminNavbar = () => {
                 Doctors
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item" to="/admin/adddoctor">
                   Add Doctor
                 </Link>
                 <Link class="dropdown-item" to="/admin/alldocterlist">

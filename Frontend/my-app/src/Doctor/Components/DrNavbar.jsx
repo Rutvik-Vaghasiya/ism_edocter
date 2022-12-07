@@ -1,12 +1,53 @@
-import { FormControlLabel } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  FormControlLabel,
+  IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { MaterialUISwitch } from "../../DashBoard/ThemBtn";
+import Logout from "@mui/icons-material/Logout";
 
+const settings = ["Profile", "Logout"];
 export const DrNavbar = () => {
+  //--------------- Logout Alert Dilog -------------------
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setAnchorElUser(null);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  //---------------- End Logout Alert Dilog-----------------
+  //--------------- PROFILE -------------
+
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  //----------------- Profile End ---------
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
         &nbsp;
         <button
           className="navbar-toggler"
@@ -24,7 +65,7 @@ export const DrNavbar = () => {
           <Link className="navbar-brand" to="./home">
             Doctors HOUSE
           </Link>
-
+          {/* //-----------------------------------------------   DOCTOR DETAILS ------------------------------------------ */}
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item dropdown">
               <Link
@@ -40,9 +81,9 @@ export const DrNavbar = () => {
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link class="dropdown-item" to="./doctor/adddocter">
-                  Add Doctor
+                  Add Profiles Details
                 </Link>
-                <Link class="dropdown-item" to="/admin/#">
+                <Link class="dropdown-item" to="/doctor/TempList">
                   All Doctors
                 </Link>
                 <div class="dropdown-divider"></div>
@@ -51,6 +92,8 @@ export const DrNavbar = () => {
                 </Link>
               </div>
             </li>
+            {/* //---------------------------------------- END   DOCTOR DETAILS ------------------------------------------ */}
+            {/* //------------------------------------------ PATIENT DETAILS ---------------------------------- */}
             <li class="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"
@@ -67,8 +110,8 @@ export const DrNavbar = () => {
                 <Link class="dropdown-item" to="./#">
                   Add Patient
                 </Link>
-                <Link class="dropdown-item" to="./Doctor/#">
-                  All Patient
+                <Link class="dropdown-item" to="/doctor/patientlist">
+                  Patient Details
                 </Link>
                 <div class="dropdown-divider"></div>
                 <Link class="dropdown-item" to="#">
@@ -76,22 +119,101 @@ export const DrNavbar = () => {
                 </Link>
               </div>
             </li>
-
-            <li className="nav-item">
-              <Link className="nav-link" to="./Doctor/#">
-                Appointments
+            {/* //------------------------------------------------------- END  PATIENT DETAILS ---------------------------------- */}
+            {/* //------------------------------------------------------  APPointment --------------------------------------------- */}
+            <li class="nav-item dropdown">
+              <Link
+                class="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdownappoinment"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Appoinments
               </Link>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link class="dropdown-item" to="./doctor/appoinment/requiested">
+                  Requiested Appoinment
+                </Link>
+                <Link class="dropdown-item" to="/doctor/appoinment/shedual">
+                  Accepted Appoinment
+                </Link>
+                <div class="dropdown-divider"></div>
+                <Link class="dropdown-item" to="#">
+                  Something else here
+                </Link>
+              </div>
             </li>
+            {/* //-------------------------------------------  APPointment --------------------------------------------- */}{" "}
             <li className="nav-item">
               <Link className="nav-link" to="./Doctor/#">
                 Calendar
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="./Doctor/#">
-                Clinic
+            <li class="nav-item dropdown">
+              <Link
+                class="nav-link dropdown-toggle"
+                to="#"
+                id="navbarDropdownappoinment"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Clinics
               </Link>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link class="dropdown-item" to="./doctor/clinic/joinedclinic">
+                  Joined Clinic
+                </Link>
+                <Link class="dropdown-item" to="/doctor/clinic/clinicList">
+                  Clinic List
+                </Link>
+                <div class="dropdown-divider"></div>
+                <Link class="dropdown-item" to="#">
+                  Something else here
+                </Link>
+              </div>
             </li>
+            {/* //----------------------------------  Profile icon -------------------------------------- */}
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <Link to="/doctor" underline="none">
+                  <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+                </Link>
+                <Link to={""}>
+                  <MenuItem onClick={handleClickOpen}>
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </Link>
+              </Menu>
+            </Box>
+            {/* //---------------------------------------  END profile icon ------------------------------------------------------------- */}
           </ul>
         </div>
         <div>
@@ -116,6 +238,29 @@ export const DrNavbar = () => {
         </form>
         &nbsp; &nbsp;
       </nav>
+      {/* //------------------------------- Dialog ------------------------------------------------- */}
+      <div>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"!!!!  ALERT !!!"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Are You Sure you want to LogOut ??
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={handleClose} autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+      {/* //----------------------------------------- End Dialog ------------------------------- */}
     </div>
   );
 };

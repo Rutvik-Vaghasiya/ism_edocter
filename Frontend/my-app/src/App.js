@@ -25,13 +25,14 @@ import { AddDrFields } from "./Temp/AddDrFields";
 import { RegiserCaedB } from "./Temp/RegiserCaedB";
 import { AdmAddDr } from "./Admin/Pages/AdmAddDr";
 import { PtAppoinment } from "./Patient/Pages/PtAppoinment";
+import { LIstGried } from "./Temp/LIstGried";
 
 function App() {
   return (
     // the flow of app starts here
     <div>
-      <PtAppoinment />
       {/* <AdmAddDr /> */}
+      {/* <LIstGried /> */}
       {/* //................. TEMP ....................... */}
       {/* <RegiserCaedB /> */}
       {/* <AddDrFields /> */}
@@ -47,7 +48,7 @@ function App() {
       {/* <AdminLogin/> */}
       {/* // ---- ADMIN  */}
       {/* <AdminMain /> */}
-      {/* <PtMain /> */}
+      <PtMain />
       {/* // Doctor */}
       {/* <DrMain /> */}
       <Routes>

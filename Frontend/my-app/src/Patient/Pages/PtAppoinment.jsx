@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   FormControl,
   InputLabel,
   MenuItem,
@@ -23,7 +24,7 @@ export const PtAppoinment = () => {
     doctornamelist: "",
     language: "",
     apdate: dayjs("2014-08-18T21:11:54"),
-    aptime: dayjs("2014-08-18T21:11:54'"),
+    aptime: dayjs("2014-08-18T21:11:54"),
   });
   const handleChange11 = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -35,7 +36,7 @@ export const PtAppoinment = () => {
         sx={{
           width: "90%",
           margin: "auto",
-          marginTop: "5%",
+          marginTop: "2%",
         }}
       >
         <div class="card">
@@ -224,7 +225,7 @@ export const PtAppoinment = () => {
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DesktopDatePicker
                           id="filled-dob"
-                          label="Date of Brith"
+                          label="Appoinment Date"
                           inputFormat="DD/MM/YYYY"
                           error={false}
                           size="small"
@@ -259,6 +260,9 @@ export const PtAppoinment = () => {
                   </tr>
                 </table>
               </p>
+              <Button id="btnsubmit" variant="contained" component="label">
+                Book Appiontment
+              </Button>
             </form>
           </div>
         </div>
