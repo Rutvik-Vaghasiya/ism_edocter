@@ -1,13 +1,15 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { AdmAddDr } from "../../Admin/Pages/AdmAddDr";
+
 import { Home } from "../../DashBoard/Home";
+import { DrAddProfiles } from "../Pages/DrAddProfiles";
 import { DrAlldoctorList } from "../Pages/DrAlldoctorList";
 import { DrApAcceptedList } from "../Pages/DrApAcceptedList";
 import { DrAppReqList } from "../Pages/DrAppReqList";
 import { DrjoinledClinic } from "../Pages/DrjoinledClinic";
 import { DrNewClinicList } from "../Pages/DrNewClinicList";
 import { DrPtdataList } from "../Pages/DrPtdataList";
+import { DrUpdateProfile } from "../Pages/DrUpdateProfile";
 import { TempTest } from "../Pages/TempTest";
 import { DrDashbord } from "./DrDashbord";
 import { DrNavbar } from "./DrNavbar";
@@ -19,7 +21,8 @@ export const DrMain = () => {
       <Routes>
         <Route path="/doctor" element={<DrDashbord />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/doctor/adddocter" element={<AdmAddDr />} />
+        <Route path="/doctor/adddocterprofiles" element={<DrAddProfiles />} />
+        <Route path="/doctor/editedrprofiles" element={<DrUpdateProfile />} />
         <Route
           path="/doctor/appoinment/requiested"
           element={<DrAppReqList />}

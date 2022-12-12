@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { AdminLogin } from "./Admin/AdminLogin";
+import { LoginPage } from "./LoginPage";
 import { DashbordAdmin } from "./Admin/Components/DashbordAdmin";
 import { AdminMain } from "./Admin/Components/AdminMain";
 // import {AdmPatientAllList} from './Admin/Pages/AdmPatientAllList';
@@ -24,13 +24,42 @@ import { DrMain } from "./Doctor/Components/DrMain";
 import { AddDrFields } from "./Temp/AddDrFields";
 import { RegiserCaedB } from "./Temp/RegiserCaedB";
 import { AdmAddDr } from "./Admin/Pages/AdmAddDr";
-import { PtAppoinment } from "./Patient/Pages/PtAppoinment";
+import { PtBookAppointment } from "./Patient/Pages/PtBookAppointment";
 import { LIstGried } from "./Temp/LIstGried";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [userIdcookies, setUserIdCookies] = useState("");
+
+  // useEffect(() => {
+  // var cookies = usertest();
+  // console.log("Cookies", cookies, userIdcookies);
+  // }, []);
+  const usertest = () => {
+    var id = localStorage.getItem("id");
+    setUserIdCookies(id);
+    return id ? true : false;
+  };
+
+  setInterval(function () {
+    var cookies = usertest();
+
+    // console.log("Cookies", cookies, userIdcookies);
+  }, 1000);
+
   return (
     // the flow of app starts here
     <div>
+      {userIdcookies === "1" ? (
+        <AdminMain />
+      ) : userIdcookies === "2" ? (
+        <DrMain />
+      ) : userIdcookies === "3" ? (
+        <PtMain />
+      ) : (
+        <Navbar />
+      )}
+
       {/* <AdmAddDr /> */}
       {/* <LIstGried /> */}
       {/* //................. TEMP ....................... */}
@@ -45,18 +74,19 @@ function App() {
       {/* <Sidebar/> */}
       {/* <Template/> */}
       {/* <Navbar /> */}
-      {/* <AdminLogin/> */}
+      {/* <AdminLogin /> */}
       {/* // ---- ADMIN  */}
       {/* <AdminMain /> */}
-      <PtMain />
+      {/* // ----- Patient ---- */}
+      {/* <PtMain /> */}
       {/* // Doctor */}
       {/* <DrMain /> */}
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/login" element={<AdminLogin />} />
-        <Route path="./about" element={<About />}></Route>
-        <Route path="./contact" element={<ContactUs />} />
-        <Route path="./admin" element={<DashbordAdmin />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<ContactUs />} />
+        {/* <Route path="/admin" element={<DashbordAdmin />} /> */}
         <Route path="/register" element={<Register />} />
         {/* <Route path='/admin/alldocterlist' element={<AllDrList/>}/>
           <Route path='/admin/allpatientlist' element={<AdmPatientAllList/>}/>

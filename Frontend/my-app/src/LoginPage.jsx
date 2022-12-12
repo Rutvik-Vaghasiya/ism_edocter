@@ -1,19 +1,46 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { validetionschema } from "../Validetion";
+import { useNavigate } from "react-router-dom";
+import { validetionschema } from "./Validetion";
 
-export const AdminLogin = () => {
+export const LoginPage = () => {
+  var navigate = useNavigate();
   //---------- validetion on from  useFrom
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onBlur",
+    mode: "onChange",
+  });
 
-  const onSubmit = (data) => console.log(data);
-
-  console.log(watch("example"));
+  const loginConfirm = async (data) => {
+    // await axios.get("https://reqres.in/api/unknown/2", data).then((res) => {res.status === "true" || res.status === 2000
+    if (true) {
+      console.log("Successfull Login", data.role);
+      localStorage.setItem("id", data.role);
+      switch (data.role) {
+        case "1":
+          navigate("/admin");
+          break;
+        case "2":
+          navigate("/doctor");
+          break;
+        case "3":
+          navigate("/patient");
+          break;
+        default:
+          navigate("/");
+          break;
+      }
+    }
+    // });
+  };
+  const submit = (data) => {
+    console.log("---", data);
+    loginConfirm(data);
+  };
 
   return (
     <>
@@ -27,7 +54,7 @@ export const AdminLogin = () => {
 
               <form
                 class="login100-form validate-form"
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(submit)}
               >
                 <span class="login100-form-title">Member Login</span>
 
@@ -43,21 +70,24 @@ export const AdminLogin = () => {
                     type="radio"
                     id="Roleadmin"
                     name="Role"
-                    value="Admin"
+                    value="1"
+                    {...register("role", validetionschema.role)}
                   />
                   &nbsp;<label htmlFor="Roleadmin">Admin</label>&nbsp;
                   <input
                     type="radio"
                     id="Roledocter"
                     name="Role"
-                    value="Docter"
+                    value="2"
+                    {...register("role", validetionschema.role)}
                   />
                   &nbsp;<label htmlFor="Roledocter">Docter</label>&nbsp;
                   <input
                     type="radio"
                     id="Rolepatient"
                     name="Role"
-                    value="patient"
+                    value="3"
+                    {...register("role", validetionschema.role)}
                   />
                   &nbsp;<label htmlFor="Rolepatient">Patient</label>
                   {errors.role && (
@@ -74,6 +104,7 @@ export const AdminLogin = () => {
                     type="text"
                     name="email"
                     placeholder="Email"
+                    defaultValue={"v@g.c"}
                     {...register("emailId", validetionschema.emailId)}
                   />
                   <span class="focus-input100"></span>
@@ -96,6 +127,7 @@ export const AdminLogin = () => {
                     type="password"
                     name="pass"
                     placeholder="Password"
+                    defaultValue={"HR@123"}
                     {...register("password", validetionschema.password)}
                   />
                   <span class="focus-input100"></span>

@@ -16,8 +16,27 @@ import {
   TimePicker,
 } from "@mui/x-date-pickers";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
-export const PtAppoinment = () => {
+export const TempEditeBooktemp = () => {
+  var Id = useParams().id;
+  console.log(Id);
+  //-----------------------------  UseFRom ------------------------------------------------
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  // const handelClickAppointment = () => {
+  //   navigate("/patient/myappointment");
+  // };
+  const onSubmit = () => {
+    console.log("-----------------");
+  };
+  //-
   //--------- Values clinicList ,----
   const [values, setValues] = React.useState({
     clinicnamelist: "",
@@ -29,7 +48,6 @@ export const PtAppoinment = () => {
   const handleChange11 = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
   return (
     <div>
       <Box
@@ -46,13 +64,13 @@ export const PtAppoinment = () => {
             className="card-header"
             sx={{ textAlign: "center" }}
           >
-            Book Appointment
+            Edite Appointment
           </Typography>
 
           <div class="card-body">
             <h5 class="card-title"></h5>
             <form
-              //   onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmit)}
               sx={{ textAlign: "center" }}
             >
               <p class="card-text">
@@ -259,10 +277,18 @@ export const PtAppoinment = () => {
                     </td>
                   </tr>
                 </table>
+                <br />
+                <Button
+                  id="btnsubmit"
+                  variant="contained"
+                  component="label"
+                  // onClick={() => {
+                  //   handelClickAppointment();
+                  // }}
+                >
+                  Save Appiontment
+                </Button>
               </p>
-              <Button id="btnsubmit" variant="contained" component="label">
-                Book Appiontment
-              </Button>
             </form>
           </div>
         </div>

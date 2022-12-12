@@ -12,10 +12,12 @@ export const AdmAddClinic = () => {
         }}
       >
         <div class="card">
-          <h4 class="card-header">Joined Clinics Details </h4>
+          <h4 class="card-header">Add New Clinics Details </h4>
           <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text"></p>
+            <p class="card-text">
+              <h1>Comming Soon....</h1>
+            </p>
           </div>
         </div>
       </Box>

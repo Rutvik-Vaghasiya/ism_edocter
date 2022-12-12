@@ -8,6 +8,12 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useFetchDataPt } from "../Query";
 
 export const AdmPatientAllList = () => {
+  //---------------------------------------------- Delete/Remove Patients data on List-----------------------------
+  const handelDeletePatient = () => {
+    console.log("Are You sure This Paitent Removed!!!");
+    alert("Warning!!!");
+  };
+  // ---------------------------------------------- Table Shows ---------------------------------------------------
   const { isLoading, isSuccess, isError, data } = useFetchDataPt();
   // const [PtData,setPtData]=useState()
   const [pageSize, setPageSize] = useState(5);
@@ -45,7 +51,11 @@ export const AdmPatientAllList = () => {
               <EditIcon />
             </Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color="error">
+            <Button
+              variant="contained"
+              color="error"
+              onClick={handelDeletePatient}
+            >
               <DeleteForeverIcon />
             </Button>
           </div>
@@ -53,40 +63,55 @@ export const AdmPatientAllList = () => {
       },
     },
   ];
+  // ------------------------------------------------------ END Table Show ----------------------------------------------------
 
   return (
     <div>
-      <Box sx={{ height: 300, width: "90%", margin: "Auto" }}>
-        {data ? (
-          <>
-            <Typography
-              variant="h3"
-              component="h3"
-              sx={{ textAlign: "center", mt: 3, mb: 3 }}
-            >
-              Patient All List
-            </Typography>
-            <DataGrid
-              columns={columnPt}
-              rows={data.data}
-              getRowId={(row) => row.Id}
-              pageSize={pageSize}
-              rowsPerPageOptions={[5, 10, 20]}
-              onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-            />
-          </>
-        ) : (
-          <Box
-            sx={{
-              width: "100vw",
-              height: "calc(100vh - 74px)",
-              display: "grid",
-              placeItems: "center",
-            }}
-          >
-            <CircularProgress />
-          </Box>
-        )}
+      <Box
+        sx={{
+          width: "95%",
+          margin: "auto",
+          marginTop: "1%",
+        }}
+        // component="form"
+        // noValidate
+        // autoComplete="off"
+      >
+        <div class="card">
+          <h4 class="card-header">Admin: Patient Details </h4>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">
+              <div>
+                <Box sx={{ height: 300, width: "100%", margin: "Auto" }}>
+                  {isLoading ? (
+                    <Box
+                      sx={{
+                        width: "100vw",
+                        height: "calc(100vh - 74px)",
+                        display: "grid",
+                        placeItems: "center",
+                      }}
+                    >
+                      <CircularProgress />
+                    </Box>
+                  ) : (
+                    <DataGrid
+                      columns={columnPt}
+                      rows={data.data}
+                      getRowId={(row) => row.Id}
+                      pageSize={pageSize}
+                      rowsPerPageOptions={[5, 10, 20]}
+                      onPageSizeChange={(newPageSize) =>
+                        setPageSize(newPageSize)
+                      }
+                    />
+                  )}
+                </Box>
+              </div>
+            </p>
+          </div>
+        </div>
       </Box>
     </div>
   );

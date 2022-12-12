@@ -18,8 +18,8 @@ export const DrDashbord = () => {
         // noValidate
         // autoComplete="off"
       >
-        <div class="card">
-          <h4 class="card-header">Dr.Rutvik Profiles </h4>
+        <div class="card bg-info">
+          <h4 class="card-header   ">Dr.Rutvik Profiles </h4>
           <div class="card-body">
             <h5 class="card-title"></h5>
             <p class="card-text">
@@ -42,7 +42,7 @@ export const DrDashbord = () => {
                 </Box>
               </div>
             </p>
-            <Link to="/doctor/adddocter">
+            <Link to="/doctor/editedrprofiles">
               <Fab
                 color="secondary"
                 aria-label="edit"

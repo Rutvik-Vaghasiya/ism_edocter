@@ -4,7 +4,6 @@ import {
   CircularProgress,
   createTheme,
   Fab,
-  Link,
   Typography,
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
@@ -16,6 +15,7 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Link } from "react-router-dom";
 
 export const AdmClinic = () => {
   const [pageSize, setPageSize] = useState(5);

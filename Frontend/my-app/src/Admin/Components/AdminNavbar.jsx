@@ -1,9 +1,38 @@
-import { FormControlLabel } from "@mui/material";
+import { Logout } from "@mui/icons-material";
+import {
+  Avatar,
+  Box,
+  FormControlLabel,
+  IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MaterialUISwitch } from "../../DashBoard/ThemBtn";
 
 export const AdminNavbar = () => {
+  var navigate = useNavigate();
+  // ------------------------- LOG OUT ------------------------
+  const handleLogout = () => {
+    localStorage.removeItem("id");
+    navigate("/");
+  };
+  // -------------------------EnD LOG OUT ------------------------
+
+  //--------------- PROFILE -------------
+
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  //----------------- Profile End ---------
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,7 +50,7 @@ export const AdminNavbar = () => {
         </button>
         &nbsp;
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <Link className="navbar-brand" to="./home">
+          <Link className="navbar-brand" to="/home">
             HOSPITAL
           </Link>
 
@@ -40,17 +69,18 @@ export const AdminNavbar = () => {
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link class="dropdown-item" to="/admin/adddoctor">
-                  Add Doctor
+                  Add Doctor Profile
                 </Link>
                 <Link class="dropdown-item" to="/admin/alldocterlist">
-                  All Doctors
+                  All Doctors Profiles
                 </Link>
                 <div class="dropdown-divider"></div>
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item disabled" to="#">
                   Something else here
                 </Link>
               </div>
             </li>
+            {/* ----------------------------------------------------------- Patient Details ADMIN pg ------------------------------------------ */}
             <li class="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"
@@ -64,29 +94,26 @@ export const AdminNavbar = () => {
                 Patients
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" to="#">
-                  Add Patient
+                <Link class="dropdown-item disabled" to="#">
+                  Help Requiest (optional)
                 </Link>
+                {/* <div class="dropdown-divider"></div> */}
                 <Link class="dropdown-item" to="./admin/allpatientlist">
                   All Patient
                 </Link>
-                <div class="dropdown-divider"></div>
-                <Link class="dropdown-item" to="#">
-                  Something else here
-                </Link>
               </div>
             </li>
-
+            {/* --------------------------------------------------------------------- END Patient pg ---------------------------------------------------------- */}
             <li className="nav-item">
               <Link className="nav-link" to="./admin/admappointments">
                 Appointments
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="./admin/admcalendar">
+            {/* <li className="nav-item">
+              <Link className="nav-link diseb" to="./admin/admcalendar">
                 Calendar
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link" to="./admin/admclinic">
                 Clinic
@@ -115,6 +142,44 @@ export const AdminNavbar = () => {
           </button>
         </form>
         &nbsp; &nbsp;
+        {/* //----------------------------------  Profile icon -------------------------------------- */}
+        <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: "45px" }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            <Link to="/admin" underline="none">
+              <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+            </Link>
+            <Link to={""}>
+              <MenuItem onClick={handleLogout}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+            </Link>
+          </Menu>
+        </Box>
+        {/* //---------------------------------------  END profile icon ------------------------------------------------------------- */}
+        &nbsp;&nbsp;&nbsp;
       </nav>
     </div>
   );

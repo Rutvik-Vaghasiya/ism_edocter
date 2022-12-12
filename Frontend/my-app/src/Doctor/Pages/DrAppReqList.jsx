@@ -7,6 +7,11 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useFetchDataDr } from "../../Admin/Query";
 
 export const DrAppReqList = () => {
+  // ------------------------------------   BTN true CLick ------------------------------------------------------
+  const handelAcceptApmt = (val) => {
+    console.log(val, "-------------------------------");
+  };
+  // --------------------------------------  Btn true Click -------------------------------------------------------
   const [pageSize, setPageSize] = useState(5);
   const { isError, isLoading, isSuccess, data } = useFetchDataDr();
 
@@ -37,7 +42,13 @@ export const DrAppReqList = () => {
       renderCell: (cellValues) => {
         return (
           <div>
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => {
+                handelAcceptApmt(cellValues);
+              }}
+            >
               <CheckRoundedIcon />
             </Button>
             <Button color="success">

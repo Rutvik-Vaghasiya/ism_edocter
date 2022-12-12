@@ -16,12 +16,13 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MaterialUISwitch } from "../../DashBoard/ThemBtn";
 import Logout from "@mui/icons-material/Logout";
 
 const settings = ["Profile", "Logout"];
 export const DrNavbar = () => {
+  var navigate = useNavigate();
   //--------------- Logout Alert Dilog -------------------
   const [open, setOpen] = React.useState(false);
 
@@ -29,7 +30,11 @@ export const DrNavbar = () => {
     setAnchorElUser(null);
     setOpen(true);
   };
-
+  const handelLogOut = () => {
+    localStorage.removeItem("id");
+    handleClose();
+    navigate("/");
+  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -80,7 +85,7 @@ export const DrNavbar = () => {
                 Doctors
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" to="./doctor/adddocter">
+                <Link class="dropdown-item" to="./doctor/adddocterprofiles">
                   Add Profiles Details
                 </Link>
                 <Link class="dropdown-item" to="/doctor/TempList">
@@ -107,14 +112,11 @@ export const DrNavbar = () => {
                 Patients
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" to="./#">
-                  Add Patient
-                </Link>
                 <Link class="dropdown-item" to="/doctor/patientlist">
                   Patient Details
                 </Link>
                 <div class="dropdown-divider"></div>
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item disabled" to="#">
                   Something else here
                 </Link>
               </div>
@@ -141,17 +143,12 @@ export const DrNavbar = () => {
                   Accepted Appoinment
                 </Link>
                 <div class="dropdown-divider"></div>
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item disabled" to="#">
                   Something else here
                 </Link>
               </div>
             </li>
             {/* //-------------------------------------------  APPointment --------------------------------------------- */}{" "}
-            <li className="nav-item">
-              <Link className="nav-link" to="./Doctor/#">
-                Calendar
-              </Link>
-            </li>
             <li class="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"
@@ -166,54 +163,20 @@ export const DrNavbar = () => {
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link class="dropdown-item" to="./doctor/clinic/joinedclinic">
-                  Joined Clinic
+                  My Clinics
                 </Link>
-                <Link class="dropdown-item" to="/doctor/clinic/clinicList">
+                <Link
+                  class="dropdown-item disabled"
+                  to="/doctor/clinic/clinicList"
+                >
                   Clinic List
                 </Link>
                 <div class="dropdown-divider"></div>
-                <Link class="dropdown-item" to="#">
+                <Link class="dropdown-item disabled" to="#">
                   Something else here
                 </Link>
               </div>
             </li>
-            {/* //----------------------------------  Profile icon -------------------------------------- */}
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                <Link to="/doctor" underline="none">
-                  <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
-                </Link>
-                <Link to={""}>
-                  <MenuItem onClick={handleClickOpen}>
-                    <ListItemIcon>
-                      <Logout fontSize="small" />
-                    </ListItemIcon>
-                    Logout
-                  </MenuItem>
-                </Link>
-              </Menu>
-            </Box>
-            {/* //---------------------------------------  END profile icon ------------------------------------------------------------- */}
           </ul>
         </div>
         <div>
@@ -237,6 +200,46 @@ export const DrNavbar = () => {
           </button>
         </form>
         &nbsp; &nbsp;
+        {/* //----------------------------------  Profile icon -------------------------------------- */}
+        <Box sx={{ flexGrow: 0 }}>
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar
+                alt="Remy Sharp"
+                src="https://reqres.in/img/faces/9-image.jpg"
+              />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: "45px" }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            <Link to="/doctor" underline="none">
+              <MenuItem onClick={handleCloseUserMenu}>My Profile</MenuItem>
+            </Link>
+
+            <MenuItem onClick={handleClickOpen}>
+              <ListItemIcon>
+                <Logout fontSize="small" />
+              </ListItemIcon>
+              Logout
+            </MenuItem>
+          </Menu>
+        </Box>
+        &nbsp;&nbsp;
+        {/* //---------------------------------------  END profile icon ------------------------------------------------------------- */}
       </nav>
       {/* //------------------------------- Dialog ------------------------------------------------- */}
       <div>
@@ -253,8 +256,8 @@ export const DrNavbar = () => {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose} autoFocus>
+            <Button onClick={handleClose}>No</Button>
+            <Button onClick={handelLogOut} autoFocus>
               Agree
             </Button>
           </DialogActions>

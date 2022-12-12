@@ -25,6 +25,12 @@ export const validetionschema = {
       message: "Password should be minimum 6 characters",
     },
   },
+  name: {
+    required: {
+      value: true,
+      message: "Please enter Name",
+    },
+  },
   fname: {
     required: {
       value: true,
@@ -53,6 +59,50 @@ export const validetionschema = {
     required: {
       value: true,
       message: "Pleace select Role ,it's Required Filed!!",
+    },
+  },
+  dropdwen: {
+    required: {
+      value: true,
+      message: "Please Select Clinic",
+    },
+  },
+  ptnames: {
+    required: {
+      value: true,
+      message: "Pleaase Enter Name",
+    },
+  },
+  message: {
+    required: {
+      value: true,
+      message: "Enter Msg... please",
+    },
+    minLength: {
+      value: 10,
+      message: "minimun 10 charecters",
+    },
+  },
+  complain: {
+    required: {
+      value: true,
+      message: "It's Nessaary Required",
+    },
+    minLength: {
+      value: 10,
+      message: "Please Write mininum 10 Charecter'sRequired",
+    },
+  },
+  data: {
+    required: {
+      value: true,
+      message: "it's Reqquired",
+    },
+  },
+  time: {
+    required: {
+      value: true,
+      message: "it's Reqquired",
     },
   },
 };
