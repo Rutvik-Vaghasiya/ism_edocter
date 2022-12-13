@@ -4,6 +4,7 @@ import { About } from "../../DashBoard/About";
 import { ContactUs } from "../../DashBoard/ContactUs";
 import { Home } from "../../DashBoard/Home";
 import { PtBookAppointment } from "../Pages/PtBookAppointment";
+import { PtDeleteAppointment } from "../Pages/PtDeleteAppointment";
 import { PtDoctorList } from "../Pages/PtDoctorList";
 import { PtEditeAppointment } from "../Pages/PtEditeAppointment";
 import { PtMyAppointment } from "../Pages/PtMyAppointment";
@@ -37,6 +38,10 @@ export const PtMain = () => {
         />
         <Route path="/patient/ptdoctoreslist" element={<PtDoctorList />} />
         <Route path="/patient/myappointment" element={<PtMyAppointment />} />
+        <Route
+          path="/patient/cancelappointment/:id"
+          element={<PtDeleteAppointment />}
+        />
       </Routes>
     </div>
   );

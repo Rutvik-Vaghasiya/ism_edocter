@@ -105,4 +105,14 @@ export const validetionschema = {
       message: "it's Reqquired",
     },
   },
+  region: {
+    required: {
+      value: true,
+      message: "Please Write Some...",
+    },
+    minLength: {
+      value: 10,
+      message: "it's shuled be mininum 10 charecters requred...",
+    },
+  },
 };

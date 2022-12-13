@@ -206,7 +206,7 @@ export const DrNavbar = () => {
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar
                 alt="Remy Sharp"
-                src="https://reqres.in/img/faces/9-image.jpg"
+                src="https://reqres.in/img/faces/9n-image.jpg"
               />
             </IconButton>
           </Tooltip>

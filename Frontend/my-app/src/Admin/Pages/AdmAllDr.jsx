@@ -56,9 +56,7 @@ export const AdmAllDr = () => {
       },
     },
   ];
-  // const rows=[
-  //   {id:1, Id:'1001', Name:'rutvik',Description:'this is learner'}
-  // ]
+  const rows = [{ Id: "1001", Name: "rutvik", Description: "this is learner" }];
 
   return (
     <div>
@@ -92,7 +90,7 @@ export const AdmAllDr = () => {
                 ) : (
                   <DataGrid
                     columns={columnDr}
-                    rows={data.data}
+                    rows={rows}
                     getRowId={(row) => row.Id}
                     pageSize={pageSize}
                     rowsPerPageOptions={[5, 10, 20]}

@@ -27,22 +27,7 @@ export const PtMyAppointment = () => {
     console.log(isError);
     console.log(isSuccess);
   }, [isLoading]);
-  // -----------------------------  DELETE APPOINTMENT ----------------------------
-  const handelDelete = async (apId) => {
-    try {
-      await axios.delete("https://reqres.in/api/users/2").then((res) => {
-        console.log(res);
-        if (res.status === 204) {
-          console.log(apId);
-          console.log("Deleted Success");
-          alert("DELETE Success");
-        }
-      });
-    } catch (error) {
-      console.log(error);
-      alert("DELETE APpointment in ERROR...");
-    }
-  };
+
   // ----------------------------- END  DELETE APPOINTMENT ----------------------------
   //--- columns dr list
   const columnDr = [
@@ -82,15 +67,17 @@ export const PtMyAppointment = () => {
               </Button>
             </Link>
             &nbsp;&nbsp; &nbsp;&nbsp;
-            <Button
-              variant="contained"
-              onClick={() => {
-                handelDelete(cellValues.id);
-              }}
-              color="error"
-            >
-              <DeleteForeverIcon />
-            </Button>
+            <Link to={"/patient/cancelappointment/" + cellValues.id}>
+              <Button
+                variant="contained"
+                // onClick={() => {
+                //   handelDelete(cellValues.id);
+                // }}
+                color="error"
+              >
+                <DeleteForeverIcon />
+              </Button>
+            </Link>
           </div>
         );
       },
