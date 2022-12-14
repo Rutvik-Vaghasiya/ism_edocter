@@ -19,14 +19,14 @@ export const DrDashbord = () => {
         // autoComplete="off"
       >
         <div class="card bg-info">
-          <h4 class="card-header   ">Dr.Rutvik Profiles </h4>
+          <h4 class="card-header   ">Dr.Doctor Profiles </h4>
           <div class="card-body">
             <h5 class="card-title"></h5>
             <p class="card-text">
               <div>
                 <Box sx={{ height: 300, width: "100%", margin: "auto" }}>
                   {true ? (
-                    <h1>Welcome</h1>
+                    <h1>Welcome Doctor</h1>
                   ) : (
                     <Box
                       sx={{

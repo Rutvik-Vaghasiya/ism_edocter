@@ -2,12 +2,13 @@ import { Box, Button, CircularProgress } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { validetionschema } from "../../Validetion";
 import ThumbUpTwoToneIcon from "@mui/icons-material/ThumbUpTwoTone";
 
 export const PtDeleteAppointment = () => {
   const Id = useParams().id;
+  const navigate = useNavigate();
   // ----------- useEfect -------------
   useEffect(() => {
     getDetailsAppointmentById();
@@ -34,6 +35,16 @@ export const PtDeleteAppointment = () => {
         }
       });
   };
+  // ---------------------------------- Updaqte Appointmne ------------------------------------
+  const handelReasonAddAppointment = async (objData) => {
+    await axios.put("https://reqres.in/api/users/2", objData).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        console.log(res.data);
+        handelDelete(objData.job);
+      }
+    });
+  };
   // -----------------------------  DELETE APPOINTMENT ----------------------------
   const handelDelete = async (apId) => {
     try {
@@ -42,7 +53,8 @@ export const PtDeleteAppointment = () => {
         if (res.status === 204) {
           console.log(apId);
           console.log("Deleted Success");
-          alert("DELETE Success");
+          // alert("DELETE Success");
+          navigate("/patient/myappointment");
         }
       });
     } catch (error) {
@@ -53,6 +65,17 @@ export const PtDeleteAppointment = () => {
   // ------------------- onSubmite --------------------
   const onDelete = (data) => {
     console.log("data :>> ", data);
+    // const obj = {
+    //   Id: dataDetails.Id,
+    //   msg: data.reason,
+    // };
+    const obj = {
+      name: "morpheus",
+      job: data.reason,
+    };
+    console.log("obj", obj);
+    handelReasonAddAppointment(obj);
+    // handelDelete(obj.job);
   };
   return (
     <div>
@@ -83,14 +106,14 @@ export const PtDeleteAppointment = () => {
                     </label>
                     <textarea
                       rows="3"
-                      placeholder="Write Region here About Cancel Appointment"
+                      placeholder="Write reason here About Cancel Appointment"
                       id="form3Example99"
                       className="form-control"
-                      {...register("region", validetionschema.region)}
+                      {...register("reason", validetionschema.reason)}
                     />
-                    {errors.region && (
+                    {errors.reason && (
                       <span className="text-danger">
-                        {errors.region.message}
+                        {errors.reason.message}
                       </span>
                     )}
                   </div>

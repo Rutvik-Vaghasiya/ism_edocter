@@ -33,7 +33,7 @@ export const AdmAddDr = () => {
               onSubmit={handleSubmit(onSubmit)}
               sx={{ textAlign: "center" }}
             >
-              <p class="card-text">
+              <div class="card-text">
                 <table>
                   <tr>
                     <th>
@@ -136,7 +136,7 @@ export const AdmAddDr = () => {
                     </td>
                   </tr>
                 </table>
-              </p>
+              </div>
               <Button id="btnsubmit" variant="contained" component="label">
                 Add Profile
               </Button>

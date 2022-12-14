@@ -105,7 +105,7 @@ export const validetionschema = {
       message: "it's Reqquired",
     },
   },
-  region: {
+  reason: {
     required: {
       value: true,
       message: "Please Write Some...",

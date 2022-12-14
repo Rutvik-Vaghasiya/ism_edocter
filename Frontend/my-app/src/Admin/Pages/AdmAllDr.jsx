@@ -90,7 +90,7 @@ export const AdmAllDr = () => {
                 ) : (
                   <DataGrid
                     columns={columnDr}
-                    rows={rows}
+                    rows={data.data}
                     getRowId={(row) => row.Id}
                     pageSize={pageSize}
                     rowsPerPageOptions={[5, 10, 20]}

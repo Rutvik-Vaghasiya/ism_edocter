@@ -69,27 +69,27 @@ export const PtDoctorList = () => {
   const [fetchDataDr, setFetchDataDr] = useState([]);
 
   // -+-+-+-+-+- useEffect +-+-+-+-+-+-+
-  const [age, setAge] = React.useState(0);
+  const [depfilter, setDepFilter] = React.useState(0);
   useEffect(() => {
     // if (data) {
-    if (age === 0) {
+    if (depfilter === 0) {
       defulatfilter();
     } else {
-      fetchfilterdr(age);
+      fetchfilterdr(depfilter);
     }
     //   setFetchDataDr(data.data);
     // }
-  }, []);
+  }, [depfilter]);
 
   // -+-+-+-+-+- useEffect +-+-+-+-+-+-+filter
   // ++++++++++++++++  useFetch data ++++++++++++
 
   const handleChange = (event) => {
     console.log(event.target.value, "+");
-    setAge(event.target.value);
-    console.log(age, "-");
+    setDepFilter(event.target.value);
+    console.log(depfilter, "-");
   };
-  console.log(age);
+  console.log(depfilter);
 
   // -------------------------------------- Dr List Filter -----------------------------------------------------------
 
@@ -106,9 +106,9 @@ export const PtDoctorList = () => {
       });
   };
   var arry = [];
-  const fetchfilterdr = async (age) => {
+  const fetchfilterdr = async (depfilter) => {
     await axios
-      .get("http://localhost/MVCcrudWithADOdotnet/api/apis/get/" + age)
+      .get("http://localhost/MVCcrudWithADOdotnet/api/apis/get/" + depfilter)
       .then((res) => {
         if (res.status === 200) {
           arry.push(res.data);
@@ -146,7 +146,7 @@ export const PtDoctorList = () => {
               <Select
                 labelId="demo-simple-select-helper-label"
                 id="demo-simple-select-helper"
-                value={age}
+                value={depfilter}
                 label="Departments"
                 size="small"
                 onChange={handleChange}
@@ -179,8 +179,8 @@ export const PtDoctorList = () => {
               {!fetchDataDr ? (
                 <Box
                   sx={{
-                    width: "100vw",
-                    height: "74px",
+                    // width: "100vw",
+                    // height: "74px",
                     display: "grid",
                     placeItems: "center",
                   }}
@@ -313,24 +313,25 @@ export const PtDoctorList = () => {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
+              Doctor Details
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>
+            {/* <Button autoFocus color="inherit" onClick={handleClose}>
               save
-            </Button>
+            </Button> */}
           </Toolbar>
         </AppBar>
         <List>
-          <ListItem button>
+          Commming Soon.....
+          {/* <ListItem button>
             <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItem>
+          </ListItem> */}
           <Divider />
-          <ListItem button>
+          {/* <ListItem button>
             <ListItemText
               primary="Default notification ringtone"
               secondary="Tethys"
             />
-          </ListItem>
+          </ListItem> */}
         </List>
       </Dialog>
       {/* //---------------------------------------  APpointment Dilog ------------------------------------------------------ */}

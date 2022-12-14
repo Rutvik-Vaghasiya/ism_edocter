@@ -3,14 +3,13 @@ import React from "react";
 export const PtDashbord = () => {
   return (
     <div>
-      <div class="card ">
-        <h4 class="card-header">Dr.Rutvik Profiles </h4>
-        <div class="card-body">
-          <h5 class="card-title">njn</h5>
-          <p class="card-text">ada</p>
+      <div className="card ">
+        <h4 className="card-header">My Profiles </h4>
+        <div className="card-body">
+          <h5 className="card-title">Welcome Patient</h5>
+          <p className="card-text"></p>
         </div>
       </div>
-      <h1>DashBord Patients Profiles</h1>
     </div>
   );
 };

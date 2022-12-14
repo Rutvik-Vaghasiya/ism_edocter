@@ -16,7 +16,7 @@ export const LoginPage = () => {
   });
 
   const loginConfirm = async (data) => {
-    // await axios.get("https://reqres.in/api/unknown/2", data).then((res) => {res.status === "true" || res.status === 2000
+    // await axios.get("https://reqres.in/api/unknown/2", data).then((res) => {res.status === "true" || res.status === 200
     if (true) {
       console.log("Successfull Login", data.role);
       localStorage.setItem("id", data.role);
@@ -142,7 +142,9 @@ export const LoginPage = () => {
                 </div>
 
                 <div class="container-login100-form-btn">
-                  <button class="login100-form-btn">Login</button>
+                  <button class="login100-form-btn" type="submit">
+                    Login
+                  </button>
                 </div>
 
                 <div class="text-center p-t-12">

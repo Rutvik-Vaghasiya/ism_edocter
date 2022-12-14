@@ -227,9 +227,9 @@ export const Register = () => {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={1}>Admin</MenuItem>
+                        <MenuItem value={2}>Doctor</MenuItem>
+                        <MenuItem value={3}>Patient</MenuItem>
                       </Select>
                     </FormControl>
                   }

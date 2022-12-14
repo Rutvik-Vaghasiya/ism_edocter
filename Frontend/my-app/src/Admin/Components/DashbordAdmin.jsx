@@ -42,7 +42,7 @@ export const DashbordAdmin = () => {
                   </Box>
                 </div>
               </p>
-              <Link to="/doctor/adddocter">
+              <Link to="/admin/adddoctor">
                 <Fab
                   color="secondary"
                   aria-label="edit"

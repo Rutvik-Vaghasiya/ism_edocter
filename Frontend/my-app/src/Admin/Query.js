@@ -32,7 +32,7 @@ const fetchDataCl = async () => {
   );
 };
 export const useFetchDataCl = () => {
-  return useQuery("", fetchDataCl, {
+  return useQuery("fetchdataCl", fetchDataCl, {
     retryDelay: 1000,
   });
 };

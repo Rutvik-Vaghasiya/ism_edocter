@@ -22,7 +22,7 @@ export const Navbar = () => {
         &nbsp;
         <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
           <Link className="navbar-brand" to="/">
-            HOSPITAL
+            Doctor Houses
           </Link>
 
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
